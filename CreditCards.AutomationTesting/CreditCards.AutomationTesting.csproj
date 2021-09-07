@@ -64,8 +64,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChromeDriverFixture.cs" />
-    <Compile Include="CreditCardTests.cs" />
+    <Compile Include="ContextFixture\ChromeDriverFixture.cs" />
+    <Compile Include="PageObjectModels\CompletedFormPage.cs" />
+    <Compile Include="PageObjectModels\FormCreditCardPage.cs" />
+    <Compile Include="PageObjectModels\Page.cs" />
+    <Compile Include="Tests\CreditCardTests.cs" />
+    <Compile Include="PageObjectModels\HomePage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
