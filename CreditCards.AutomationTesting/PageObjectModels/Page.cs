@@ -1,4 +1,6 @@
-﻿using OpenQA.Selenium;
+﻿using CreditCards.AutomationTesting.Waits;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +12,7 @@ namespace CreditCards.AutomationTesting.PageObjectModels
     class Page
     {
         protected IWebDriver Driver;
+        protected WebDriverWait Wait; 
         protected virtual string PageUrl { get; }
         protected virtual string PageTitle { get; }
 

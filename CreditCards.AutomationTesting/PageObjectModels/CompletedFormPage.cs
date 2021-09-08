@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using CreditCards.AutomationTesting.Waits;
+using OpenQA.Selenium;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -13,6 +14,7 @@ namespace CreditCards.AutomationTesting.PageObjectModels
         public CompletedFormPage(IWebDriver driver)
         {
             Driver = driver;
+            Wait = new FluentWait(Driver).Wait();
         }
         protected override string PageUrl => "http://localhost:44108/Apply";
         protected override string PageTitle => "Application Complete - Credit Cards";
