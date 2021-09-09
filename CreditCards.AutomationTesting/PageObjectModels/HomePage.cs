@@ -1,10 +1,6 @@
 ﻿using CreditCards.AutomationTesting.Waits;
 using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using OpenQA.Selenium.Support.UI;
 
 namespace CreditCards.AutomationTesting.PageObjectModels
 {
@@ -24,6 +20,13 @@ namespace CreditCards.AutomationTesting.PageObjectModels
         {
             IWebElement greetingLink = Driver.FindElement(By.PartialLinkText("- Apply Now!"));
             greetingLink.Click();
+            return new FormCreditCardPage(Driver);
+        }
+
+        public  FormCreditCardPage ClickApplyEasyApplicationLink()
+        {
+            Wait.Until(ExpectedConditions.ElementToBeClickable(By.LinkText("Easy: Apply Now!"))).Click();
+
             return new FormCreditCardPage(Driver);
         }
     }

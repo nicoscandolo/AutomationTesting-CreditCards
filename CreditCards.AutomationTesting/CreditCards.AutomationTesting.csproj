@@ -71,6 +71,7 @@
     <Compile Include="Tests\CreditCardTests.cs" />
     <Compile Include="PageObjectModels\HomePage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Waits\FluentWait.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

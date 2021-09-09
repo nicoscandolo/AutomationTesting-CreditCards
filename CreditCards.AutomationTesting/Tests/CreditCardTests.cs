@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Xunit;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
-using System.Threading;
+﻿using Xunit;
 using CreditCards.AutomationTesting.PageObjectModels;
 
 namespace CreditCards.AutomationTesting
@@ -51,7 +43,7 @@ namespace CreditCards.AutomationTesting
             Assert.Equal($"{FirstName} {LastName}", completedFormPage.FullName);
             Assert.Equal(Age, completedFormPage.Age);
             Assert.Equal(Income, completedFormPage.Income);
-            Assert.Equal("Single", completedFormPage.RelationshipStatus);
+            Assert.Equal("Married", completedFormPage.RelationshipStatus);
             Assert.Equal("Internet", completedFormPage.BussinessSource);
         }
 
@@ -82,13 +74,30 @@ namespace CreditCards.AutomationTesting
         }
 
         [Fact]
-        public void ShouldFormBeInitiatedFromHomePage()
+        public void ShouldFormBeInitiatedFromHomePage_FormPageOpen()
         {
+            //PageObjectModel
             var homePage = new HomePage(ChromeDriverFixture.Driver);
             homePage.NavigateToPage();
 
+            //Go to Form
             FormCreditCardPage formCreditCardPage = homePage.ClickGreetingLink();
 
+            //Assert
+            formCreditCardPage.EnsurePageIsLoaded();
+        }
+
+        [Fact]
+        public void ShouldFormBeInitiatedFromCarouselPage_FormPageOpen()
+        {
+            //PageObjectModel
+            var homePage = new HomePage(ChromeDriverFixture.Driver);
+            homePage.NavigateToPage();
+
+            //Go to form
+            FormCreditCardPage formCreditCardPage = homePage.ClickApplyEasyApplicationLink();
+
+            //Assert
             formCreditCardPage.EnsurePageIsLoaded();
         }
     }

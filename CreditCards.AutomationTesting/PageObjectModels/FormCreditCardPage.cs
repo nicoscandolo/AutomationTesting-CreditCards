@@ -1,12 +1,8 @@
 ﻿using CreditCards.AutomationTesting.Waits;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CreditCards.AutomationTesting.PageObjectModels
 {
@@ -26,7 +22,7 @@ namespace CreditCards.AutomationTesting.PageObjectModels
         public void WriteFrequentFlyerNumber(string frequentFlyerNumber) => Driver.FindElement(By.Id("FrequentFlyerNumber")).SendKeys(frequentFlyerNumber);
         public void WriteAge(string age) => Driver.FindElement(By.Id("Age")).SendKeys(age);
         public void WriteGrossIncome(string grossIncome) => Driver.FindElement(By.Id("GrossAnnualIncome")).SendKeys(grossIncome);
-        public void ChooseMaritalStatusSingle() => Driver.FindElement(By.Id("Single")).Click();
+        public void ChooseMaritalStatusSingle() => Wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//input[@name='RelationshipStatus']"))).Click();
         public void ChooseInternetOnHearAboutUs()
         {
             IWebElement businessSource  = Driver.FindElement(By.Id("BusinessSource"));
